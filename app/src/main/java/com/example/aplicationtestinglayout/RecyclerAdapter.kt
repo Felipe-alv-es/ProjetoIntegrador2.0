@@ -18,6 +18,7 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder> () {
         var data: TextView
         var hora: TextView
         var Itemtipo: ImageView
+        var viewCor: ImageView
 
         init {
 
@@ -28,6 +29,7 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder> () {
             data = itemView.findViewById(R.id.data)
             hora = itemView.findViewById(R.id.hora)
             Itemtipo = itemView.findViewById(R.id.TypeImage)
+            viewCor = itemView.findViewById(R.id.ColorViewTasks)
             //alterado pra testes
 
         }
@@ -40,6 +42,7 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder> () {
     var data = arrayOf("04/09/2077","Teste2","Teste3","Teste4","Teste5","Teste6","Teste7", "Teste8", "Teste9")
     var hora = arrayOf("Não especificado","Teste2","Teste3","Teste4","Teste5","Teste6","Teste7", "Teste8", "Teste9")
     var tipo = arrayOf(R.drawable.goal,R.drawable.clipboards,R.drawable.clipboards,R.drawable.habito,R.drawable.goal,R.drawable.clipboards,R.drawable.habito, R.drawable.goal, R.drawable.goal)
+    var corDaView = arrayOf(R.drawable.recycle_task_color_yellow, R.drawable.recycle_task_collor_red, R.drawable.recycle_task_collor_red, R.drawable.recycle_task_color_green, R.drawable.recycle_task_color_yellow, R.drawable.recycle_task_collor_red, R.drawable.recycle_task_color_green, R.drawable.recycle_task_color_yellow, R.drawable.recycle_task_color_yellow,)
     //Atributos da recyclerView
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.ViewHolder {
@@ -56,6 +59,7 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder> () {
         holder.data.text = data[position]
         holder.hora.text = hora[position]
         holder.Itemtipo.setImageResource(tipo[position])
+        holder.viewCor.setImageResource(corDaView[position])
 
     }
 
