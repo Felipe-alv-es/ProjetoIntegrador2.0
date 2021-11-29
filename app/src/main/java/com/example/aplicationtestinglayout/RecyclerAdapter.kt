@@ -8,8 +8,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.aplicationtestinglayout.data.User
 
 class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder> () {
+
+    private var userList = emptyList<User>()
+
+    var tipo = arrayOf(R.drawable.goal,R.drawable.clipboards,R.drawable.clipboards,R.drawable.habito,R.drawable.goal,R.drawable.clipboards,R.drawable.habito, R.drawable.goal, R.drawable.goal)
+    var corDaView = arrayOf(R.drawable.recycle_task_color_yellow, R.drawable.recycle_task_collor_red, R.drawable.recycle_task_collor_red, R.drawable.recycle_task_color_green, R.drawable.recycle_task_color_yellow, R.drawable.recycle_task_collor_red, R.drawable.recycle_task_color_green, R.drawable.recycle_task_color_yellow, R.drawable.recycle_task_color_yellow,)
 
     inner class ViewHolder (itemView: View): RecyclerView.ViewHolder(itemView) {
 
@@ -19,6 +25,7 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder> () {
         var hora: TextView
         var Itemtipo: ImageView
         var viewCor: ImageView
+        var textId: TextView
 
         init {
 
@@ -30,20 +37,14 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder> () {
             hora = itemView.findViewById(R.id.hora)
             Itemtipo = itemView.findViewById(R.id.TypeImage)
             viewCor = itemView.findViewById(R.id.ColorViewTasks)
+            textId = itemView.findViewById(R.id.textID)
             //alterado pra testes
 
         }
 
     }
 
-    //Atributos da recyclerView
-    var title = arrayOf("Comprar um carro zero", "Teste2", "Teste3", "Teste4", "Teste5", "Teste6", "Teste7", "Teste8", "Teste9" )
-    var descri = arrayOf("Comprar um carro zero caro pra caramba slc","Teste2","Teste3","Teste4","Teste5","Teste6","Teste7", "Teste8", "Teste9")
-    var data = arrayOf("04/09/2077","Teste2","Teste3","Teste4","Teste5","Teste6","Teste7", "Teste8", "Teste9")
-    var hora = arrayOf("Não especificado","Teste2","Teste3","Teste4","Teste5","Teste6","Teste7", "Teste8", "Teste9")
-    var tipo = arrayOf(R.drawable.goal,R.drawable.clipboards,R.drawable.clipboards,R.drawable.habito,R.drawable.goal,R.drawable.clipboards,R.drawable.habito, R.drawable.goal, R.drawable.goal)
-    var corDaView = arrayOf(R.drawable.recycle_task_color_yellow, R.drawable.recycle_task_collor_red, R.drawable.recycle_task_collor_red, R.drawable.recycle_task_color_green, R.drawable.recycle_task_color_yellow, R.drawable.recycle_task_collor_red, R.drawable.recycle_task_color_green, R.drawable.recycle_task_color_yellow, R.drawable.recycle_task_color_yellow,)
-    //Atributos da recyclerView
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.ViewHolder {
 
@@ -54,17 +55,27 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder> () {
 
     override fun onBindViewHolder(holder: RecyclerAdapter.ViewHolder, position: Int) {
 
-        holder.tituloTask.text = title[position]
-        holder.descricaoTask.text = descri[position]
-        holder.data.text = data[position]
-        holder.hora.text = hora[position]
+        val currentItem = userList[position]
+
+        holder.textId.text = currentItem.id.toString()
+        holder.tituloTask.text = currentItem.tituloTarefa
+        holder.descricaoTask.text = currentItem.descriTarefa
+        holder.data.text = currentItem.dataTarefa
+        holder.hora.text = currentItem.horaTarefa
         holder.Itemtipo.setImageResource(tipo[position])
         holder.viewCor.setImageResource(corDaView[position])
 
     }
 
     override fun getItemCount(): Int {
-        return title.size
+        return userList.size
+    }
+
+    fun setData(user: List<User>){
+
+        this.userList = user
+        notifyDataSetChanged()
+
     }
 
 }

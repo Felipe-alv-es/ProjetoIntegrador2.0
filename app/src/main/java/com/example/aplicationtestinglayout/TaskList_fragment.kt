@@ -8,20 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.aplicationtestinglayout.data.UserViewModel
 import com.example.aplicationtestinglayout.databinding.FragmentTaskListFragmentBinding
 import javax.sql.DataSource
 
 
 class TaskList_fragment : Fragment() {
-
-    private var layoutManager: RecyclerView.LayoutManager? = null
-    private var adapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>? = null
-
-
-    private var _binding: FragmentTaskListFragmentBinding? = null
-    private var binding = _binding
-    //private val binding get() = _binding!!
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,19 +30,22 @@ class TaskList_fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val fragmentBinding = FragmentTaskListFragmentBinding.inflate(inflater, container, false)
+        val view = inflater.inflate(R.layout.fragment_task_list_fragment, container, false)
 
-        binding = fragmentBinding
+        val adapter = RecyclerAdapter()
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
 
-        layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(context)
 
-        binding?.recyclerView?.layoutManager = layoutManager
+        val userViewModel = UserViewModel(context)
+        userViewModel.lerTodosOsDados.observe(viewLifecycleOwner, {
 
-        adapter = RecyclerAdapter()
-        binding?.recyclerView?.adapter = adapter
+            response -> adapter.setData(response)
 
-        return fragmentBinding.root
+        })
 
+        return view
     }
 
 }
