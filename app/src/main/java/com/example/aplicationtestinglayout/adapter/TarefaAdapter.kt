@@ -1,21 +1,18 @@
-package com.example.aplicationtestinglayout
+package com.example.aplicationtestinglayout.adapter
 
-import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.aplicationtestinglayout.R
 import com.example.aplicationtestinglayout.data.User
+import com.example.aplicationtestinglayout.model.Tarefas
 
-class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder> () {
+class TarefaAdapter : RecyclerView.Adapter<TarefaAdapter.ViewHolder>() {
 
-    private var userList = emptyList<User>()
-
-    //var tipo = arrayOf(R.drawable.goal,R.drawable.clipboards,R.drawable.clipboards,R.drawable.habito,R.drawable.goal,R.drawable.clipboards,R.drawable.habito, R.drawable.goal, R.drawable.goal, R.drawable.goal)
-    //var corDaView = arrayOf(R.drawable.recycle_task_color_yellow, R.drawable.recycle_task_collor_red, R.drawable.recycle_task_collor_red, R.drawable.recycle_task_color_green, R.drawable.recycle_task_color_yellow, R.drawable.recycle_task_collor_red, R.drawable.recycle_task_color_green, R.drawable.recycle_task_color_yellow, R.drawable.recycle_task_color_yellow, R.drawable.recycle_task_color_yellow,)
+    private var listaTarefas = emptyList<Tarefas>()
 
     inner class ViewHolder (itemView: View): RecyclerView.ViewHolder(itemView) {
 
@@ -46,18 +43,18 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder> () {
 
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TarefaAdapter.ViewHolder {
 
         val v = LayoutInflater.from(parent.context).inflate(R.layout.card_layout, parent, false)
         return ViewHolder(v)
 
     }
 
-    override fun onBindViewHolder(holder: RecyclerAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: TarefaAdapter.ViewHolder, position: Int) {
 
-        val currentItem = userList[position]
+        val currentItem = listaTarefas[position]
 
-        holder.textId.text = currentItem.id.toString()
+        holder.textId.text = currentItem.Id.toString()
         holder.tituloTask.text = currentItem.tituloTarefa
         holder.descricaoTask.text = currentItem.descriTarefa
         holder.data.text = currentItem.dataTarefa
@@ -69,19 +66,14 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder> () {
     }
 
     override fun getItemCount(): Int {
-        return userList.size
+        return listaTarefas.size
     }
 
-    fun setData(user: List<User>){
+    fun setData(tarefas: List<Tarefas>){
 
-        this.userList = user
+        this.listaTarefas = tarefas
         notifyDataSetChanged()
 
     }
 
 }
-
-
-
-
-

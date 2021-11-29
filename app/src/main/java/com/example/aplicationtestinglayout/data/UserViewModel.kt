@@ -28,4 +28,14 @@ class UserViewModel (context: Context?): ViewModel() {
 
     }
 
+    fun removeUser(user: User){
+
+        viewModelScope.launch (Dispatchers.IO) {
+
+            repository.removeUser(user)
+
+        }
+
+    }
+
 }
