@@ -3,23 +3,30 @@ package com.example.aplicationtestinglayout.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aplicationtestinglayout.R
 import com.example.aplicationtestinglayout.data.User
 import com.example.aplicationtestinglayout.model.Tarefas
+import com.example.aplicationtestinglayout.viewModel_remoteBD.MainViewModel
 
-class TarefaAdapter : RecyclerView.Adapter<TarefaAdapter.ViewHolder>() {
+class TarefaAdapter(
+
+    private val taskItemClickListener: TaskItemClickListener,
+    private val MainViewModel: MainViewModel
+    )
+    : RecyclerView.Adapter<TarefaAdapter.TarefaViewHolder>()
+    {
 
     private var listaTarefas = emptyList<Tarefas>()
 
-    inner class ViewHolder (itemView: View): RecyclerView.ViewHolder(itemView) {
+    class TarefaViewHolder (itemView: View): RecyclerView.ViewHolder(itemView) {
 
         var tituloTask: TextView
         var descricaoTask: TextView
         var data: TextView
-        var hora: TextView
         var Itemtipo: ImageView
         var viewCor: ImageView
         var textId: TextView
@@ -31,7 +38,6 @@ class TarefaAdapter : RecyclerView.Adapter<TarefaAdapter.ViewHolder>() {
             tituloTask = itemView.findViewById(R.id.titulo)
             descricaoTask = itemView.findViewById(R.id.descri)
             data = itemView.findViewById(R.id.data)
-            hora = itemView.findViewById(R.id.hora)
             Itemtipo = itemView.findViewById(R.id.TypeImage)
             viewCor = itemView.findViewById(R.id.ColorViewTasks)
             textId = itemView.findViewById(R.id.textID)
@@ -43,25 +49,23 @@ class TarefaAdapter : RecyclerView.Adapter<TarefaAdapter.ViewHolder>() {
 
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TarefaAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TarefaAdapter.TarefaViewHolder {
 
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.card_layout, parent, false)
-        return ViewHolder(v)
+        val layoutAdapter = LayoutInflater.from(parent.context)
+            .inflate(R.layout.card_layout, parent, false)
+
+        return TarefaViewHolder(layoutAdapter)
 
     }
 
-    override fun onBindViewHolder(holder: TarefaAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: TarefaViewHolder, position: Int) {
 
         val currentItem = listaTarefas[position]
 
         holder.textId.text = currentItem.Id.toString()
         holder.tituloTask.text = currentItem.tituloTarefa
         holder.descricaoTask.text = currentItem.descriTarefa
-        holder.data.text = currentItem.dataTarefa
-        holder.hora.text = currentItem.horaTarefa
-        holder.Itemtipo.setImageResource(R.drawable.recycle_task_color_yellow)
-        holder.viewCor.setImageResource(R.drawable.recycle_task_color_yellow)
-
+        holder.data.text = currentItem.dueDate
 
     }
 

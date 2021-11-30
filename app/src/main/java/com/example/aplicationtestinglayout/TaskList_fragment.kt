@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aplicationtestinglayout.adapter.TarefaAdapter
+import com.example.aplicationtestinglayout.adapter.TaskItemClickListener
 import com.example.aplicationtestinglayout.data.UserViewModel
 import com.example.aplicationtestinglayout.databinding.FragmentTaskListFragmentBinding
 import com.example.aplicationtestinglayout.model.Tarefas
@@ -22,7 +24,7 @@ import com.example.cardview.repository.Repository
 import javax.sql.DataSource
 
 
-class TaskList_fragment : Fragment() {
+class TaskList_fragment : Fragment(), TaskItemClickListener {
 
     val mainViewModel: MainViewModel by activityViewModels()
 
@@ -38,7 +40,7 @@ class TaskList_fragment : Fragment() {
         _binding = FragmentTaskListFragmentBinding.inflate(inflater, container, false)
 
 
-        val adapter = TarefaAdapter()
+        val adapter = TarefaAdapter(this, mainViewModel)
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.adapter = adapter
         binding.recyclerView.setHasFixedSize(true)
@@ -51,29 +53,12 @@ class TaskList_fragment : Fragment() {
 
         })
 
-
-
-
-        /*
-
-        //Banco de dados Local
-
-        val adapter = RecyclerAdapter()
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
-
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(context)
-
-        val userViewModel = UserViewModel(context)
-        userViewModel.lerTodosOsDados.observe(viewLifecycleOwner, {
-
-            response -> adapter.setData(response)
-
-        })
-        */
-
-
         return binding.root
+    }
+
+    override fun onTaskClicked(tarefas: Tarefas) {
+        mainViewModel.tarefaSelecionada = tarefas
+        findNavController().navigate(R.id.CreationTaskToList)
     }
 
 }
