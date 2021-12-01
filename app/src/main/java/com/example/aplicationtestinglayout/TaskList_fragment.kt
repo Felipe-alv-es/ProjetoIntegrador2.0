@@ -2,33 +2,34 @@ package com.example.aplicationtestinglayout
 
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.aplicationtestinglayout.adapter.TarefaAdapter
+import com.example.aplicationtestinglayout.adapter.TaskItemClickListener
+import com.example.aplicationtestinglayout.data.UserViewModel
 import com.example.aplicationtestinglayout.databinding.FragmentTaskListFragmentBinding
+import com.example.aplicationtestinglayout.model.Tarefas
+import com.example.aplicationtestinglayout.viewModel_remoteBD.MainViewModel
+import com.example.cardview.repository.Repository
 import javax.sql.DataSource
 
 
-class TaskList_fragment : Fragment() {
+class TaskList_fragment : Fragment(), TaskItemClickListener {
 
-    private var layoutManager: RecyclerView.LayoutManager? = null
-    private var adapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>? = null
-
+    val mainViewModel: MainViewModel by activityViewModels()
 
     private var _binding: FragmentTaskListFragmentBinding? = null
-    private var binding = _binding
-    //private val binding get() = _binding!!
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,19 +37,28 @@ class TaskList_fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val fragmentBinding = FragmentTaskListFragmentBinding.inflate(inflater, container, false)
+        _binding = FragmentTaskListFragmentBinding.inflate(inflater, container, false)
 
-        binding = fragmentBinding
 
-        layoutManager = LinearLayoutManager(context)
+        val adapter = TarefaAdapter(this, mainViewModel)
+        binding.recyclerView.layoutManager = LinearLayoutManager(context)
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.setHasFixedSize(true)
 
-        binding?.recyclerView?.layoutManager = layoutManager
+        mainViewModel.listTarefas()
+        mainViewModel.myResponse.observe(viewLifecycleOwner, {
 
-        adapter = RecyclerAdapter()
-        binding?.recyclerView?.adapter = adapter
+            response ->
+            response.body()?.let {adapter.setData(it)}
 
-        return fragmentBinding.root
+        })
 
+        return binding.root
+    }
+
+    override fun onTaskClicked(tarefas: Tarefas) {
+        mainViewModel.tarefaSelecionada = tarefas
+        findNavController().navigate(R.id.CreationTaskToList)
     }
 
 }
