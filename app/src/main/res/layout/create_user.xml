@@ -26,7 +26,9 @@
         android:id="@+id/center_view"
         style="@style/ContainerComponents"
         android:layout_width="0dp"
-        android:layout_height="270dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -35,18 +37,54 @@
         app:layout_constraintVertical_bias="0.407" />
 
     <EditText
+        android:id="@+id/Pass2"
+        style="@style/inputTextLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:hint="@string/senha"
+        android:importantForAutofill="no"
+        android:inputType="numberPassword"
+        android:padding="20dp"
+        android:textColorHint="#aeaeae"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Pass" />
+
+    <EditText
+        android:id="@+id/Pass"
+        style="@style/inputTextLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:hint="@string/senha"
+        android:importantForAutofill="no"
+        android:inputType="numberPassword"
+        android:padding="20dp"
+        android:textColorHint="#aeaeae"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nomeCompleto" />
+
+    <EditText
         android:id="@+id/userName"
         style="@style/inputTextLogin"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
         android:hint="@string/nome_de_usu_rio"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
-        android:textColorHint="#aeaeae"
         android:padding="20dp"
-        android:textColor="#FDFAFA"
+        android:textColor="#000000"
+        android:textColorHint="#aeaeae"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,14 +94,14 @@
         android:id="@+id/nomeCompleto"
         style="@style/inputTextLogin"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
         android:hint="@string/senha"
         android:importantForAutofill="no"
         android:inputType="numberPassword"
-        android:textColorHint="#aeaeae"
         android:padding="20dp"
+        android:textColorHint="#aeaeae"
         app:layout_constraintEnd_toEndOf="@+id/center_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userName" />
@@ -71,51 +109,49 @@
     <TextView
         android:id="@+id/CadButton"
         style="@style/buttonLogin"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="24dp"
         android:fontFamily="@font/open_sans"
-        android:text="@string/login"
+        android:text="Concluir"
         android:textColor="#F8F5F5"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/center_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nomeCompleto" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/CadastrarButton"
-        style="@style/buttonCad"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
+        android:id="@+id/cadButton"
+        style="@style/buttonLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="@font/open_sans"
-        android:text="@string/Cadastro"
+        android:text="Cancelar"
         android:textColor="#F8F5F5"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/CadButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="30dp"
+        android:text="Declaro que Li e aceito os termos de politica e privacidade"
+        android:textColor="#aeaeae"
+        android:textColorHint="#aeaeae"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/center_view" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="350dp"
-        android:layout_height="68dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CadastrarButton"
-        app:srcCompat="@drawable/faceprov2" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="351dp"
-        android:layout_height="77dp"
-        android:layout_marginEnd="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:srcCompat="@drawable/googleprov1" />
-
+        app:layout_constraintTop_toBottomOf="@+id/Pass2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

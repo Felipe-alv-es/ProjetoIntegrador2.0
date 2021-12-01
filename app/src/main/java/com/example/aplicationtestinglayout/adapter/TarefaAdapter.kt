@@ -1,5 +1,6 @@
 package com.example.aplicationtestinglayout.adapter
 
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,10 +26,16 @@ class TarefaAdapter(
     class TarefaViewHolder(view: View): RecyclerView.ViewHolder(view){
         val textNome = view.findViewById<TextView>(R.id.titulo)
         val textDesc = view.findViewById<TextView>(R.id.descri)
-        val textDono = view.findViewById<TextView>(R.id.DonoProv)
         val textData = view.findViewById<TextView>(R.id.data)
-        val textStatus = view.findViewById<TextView>(R.id.StatusProv)
         val buttonDeletar = view.findViewById<Button>(R.id.buttonDeletar)
+
+        // Definir o icone e cor da task
+        val textDono = view.findViewById<TextView>(R.id.DonoProv)
+        // Definir o icone e cor da task
+
+        val textStatus = view.findViewById<TextView>(R.id.StatusProv)
+        val ImageType = view.findViewById<ImageView>(R.id.ColorViewTasks)
+        val typeImage = view.findViewById<ImageView>(R.id.TypeImage)
     }
 
 
@@ -51,6 +58,20 @@ class TarefaAdapter(
         holder.textDono.text = tarefa.assignetTo
         holder.textData.text = tarefa.dueDate
         holder.textStatus.text = tarefa.status
+
+        if (holder.textDono.text == "0") {
+            holder.ImageType.setImageResource(R.drawable.recycle_task_color_green)
+            holder.typeImage.setImageResource(R.drawable.habito)
+
+        }
+        else if(holder.textDono.text == "1"){
+            holder.ImageType.setImageResource(R.drawable.recycle_task_collor_red)
+            holder.typeImage.setImageResource(R.drawable.clipboards)
+        }
+        else if (holder.textDono.text == "2"){
+            holder.ImageType.setImageResource(R.drawable.recycle_task_color_yellow)
+            holder.typeImage.setImageResource(R.drawable.goal)
+        }
 
         holder.buttonDeletar.setOnClickListener {
             mainViewModel.deleteTarefa(tarefa)

@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
-import dagger.hilt.android.AndroidEntryPoint
 
 
 class MainActivity : AppCompatActivity() {
@@ -23,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         // Gradiente mudando de cor
 
 
-        val viewFirstScreen: View = findViewById(R.id.LoginButton)
+        val viewFirstScreen: View = findViewById(R.id.CadButton)
         val intent = Intent(this, CenterMenu::class.java)
 
         viewFirstScreen.setOnClickListener{

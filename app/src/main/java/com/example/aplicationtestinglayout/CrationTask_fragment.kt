@@ -76,9 +76,9 @@ class CrationTask_fragment : Fragment(), TimePickerListener, AdapterView.OnItemS
     fun inserirNoBanco(){
         val titulo = binding.taskTitleForm.text.toString()
         val desc = binding.descricaoTask.text.toString()
-        val dono = binding.provisoryName.text.toString()
+        val dono = "0"
         val data = binding.inputData.text.toString()
-        val status = binding.provisoryStatus.text.toString()
+        val status = "0"
 
         if(inputCheck(titulo, desc, dono, data, status)){
             _tarefaSelecionada = mainViewModel.tarefaSelecionada
@@ -117,15 +117,11 @@ class CrationTask_fragment : Fragment(), TimePickerListener, AdapterView.OnItemS
         if (_tarefaSelecionada != null) {
             binding.taskTitleForm.setText(tarefaSelecionada.name)
             binding.descricaoTask.setText(tarefaSelecionada.description)
-            binding.provisoryName.setText(tarefaSelecionada.assignetTo)
             binding.inputData.setText(tarefaSelecionada.dueDate)
-            binding.provisoryStatus.setText(tarefaSelecionada.status)
         } else {
             binding.taskTitleForm.text = null
             binding.descricaoTask.text = null
-            binding.provisoryName.text = null
             binding.inputData.text = null
-            binding.provisoryStatus.text = null
 
         }
     }
