@@ -1,7 +1,11 @@
 package com.example.aplicationtestinglayout.model
 
-data class Tarefas (
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
+@Entity(tableName = "tarefa_table")
+data class Tarefas (
+    @PrimaryKey(autoGenerate = true)
     val id: Int,
     var name: String,
     var description: String,

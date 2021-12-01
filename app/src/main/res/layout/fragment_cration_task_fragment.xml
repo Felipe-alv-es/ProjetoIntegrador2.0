@@ -251,33 +251,19 @@
     <EditText
         android:id="@+id/inputData"
         style="@style/TextInput"
-        android:layout_width="130dp"
+        android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginStart="45dp"
+        android:layout_marginStart="65dp"
         android:layout_marginTop="15dp"
+        android:layout_marginEnd="65dp"
         android:drawableStart="@drawable/ic_calendario"
         android:fontFamily="@font/open_sans"
         android:hint="@string/data"
         android:importantForAutofill="no"
         android:inputType="date"
         android:textColor="#FFFDFD"
-        app:layout_constraintStart_toStartOf="@+id/form_box"
-        app:layout_constraintTop_toBottomOf="@+id/descricaoTask" />
-
-    <EditText
-        android:id="@+id/inputHora"
-        style="@style/TextInput"
-        android:layout_width="100dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="45dp"
-        android:drawableStart="@drawable/ic_clockwhite"
-        android:fontFamily="@font/open_sans"
-        android:hint="@string/hora"
-        android:importantForAutofill="no"
-        android:inputType="time"
-        android:textColor="#FAF7F7"
         app:layout_constraintEnd_toEndOf="@+id/form_box"
+        app:layout_constraintStart_toStartOf="@+id/form_box"
         app:layout_constraintTop_toBottomOf="@+id/descricaoTask" />
 
     <EditText
@@ -320,31 +306,5 @@
         app:layout_constraintEnd_toEndOf="@+id/cont"
         app:layout_constraintTop_toBottomOf="@+id/form_box"
         app:layout_constraintVertical_bias="0.4" />
-
-    <EditText
-        android:id="@+id/provisoryName"
-        style="@style/TextInput"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/open_sans"
-        android:hint="Só de testes 1 "
-        android:importantForAutofill="no"
-        android:inputType="text"
-        android:textColor="#F4F4F4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/provisoryStatus"
-        style="@style/TextInput"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="240dp"
-        android:fontFamily="@font/open_sans"
-        android:hint="Só de testes 2"
-        android:importantForAutofill="no"
-        android:inputType="text"
-        android:textColor="#F4F4F4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
