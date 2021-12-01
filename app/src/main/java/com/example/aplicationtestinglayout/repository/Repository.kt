@@ -38,7 +38,7 @@ class Repository (private val tarefaDao: TarefaDao) {
         return tarefaDao.queryById(id)
     }
 
-    suspend fun update(tarefas: Tarefas){
+    suspend fun updateRoom(tarefas: Tarefas){
         tarefaDao.updateRoom(tarefas)
     }
 

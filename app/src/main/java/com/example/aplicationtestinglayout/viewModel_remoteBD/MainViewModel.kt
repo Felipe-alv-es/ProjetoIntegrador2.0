@@ -59,7 +59,7 @@ class MainViewModel @Inject constructor(
                     for (tarefa in listTarefas){
                         val findTarefas = repository.queryById(tarefa.id)
                         if(findTarefas.first() != null){
-                            repository.update(tarefa)
+                            repository.updateRoom(tarefa)
                         }else{
                             repository.insertTarefas(tarefa)
                         }
@@ -78,20 +78,38 @@ class MainViewModel @Inject constructor(
 
     fun addTarefa(tarefas: Tarefas){
         viewModelScope.launch {
-            val response = repository.addTarefa(tarefas)
+            try {
+                val response = repository.addTarefa(tarefas)
+                if(response.isSuccessful){
+                    repository.insertTarefas(tarefas)
+                }else{
+                    repository.insertTarefas(tarefas)
+                }
+            }catch (e: Exception){
+                repository.insertTarefas(tarefas)
+            }
         }
     }
 
     fun updateTarefa(tarefas: Tarefas){
         viewModelScope.launch {
-            val response = repository.updateTarefa(tarefas)
+            try {
+                repository.updateTarefa(tarefas)
+                repository.updateRoom(tarefas)
+            }catch (e: Exception){
+                repository.updateRoom(tarefas)
+            }
         }
     }
 
-    fun deleteTarefa(valor: Int){
+    fun deleteTarefa(tarefas: Tarefas){
         viewModelScope.launch {
-            val response = repository.deleteTarefa(valor)
-            //_myDeleteResponse.value = response
+            try {
+                repository.deleteTarefa(tarefas.id)
+                repository.deleteTarefaRoom(tarefas)
+            }catch (e: Exception){
+                repository.deleteTarefaRoom(tarefas)
+            }
         }
     }
 
