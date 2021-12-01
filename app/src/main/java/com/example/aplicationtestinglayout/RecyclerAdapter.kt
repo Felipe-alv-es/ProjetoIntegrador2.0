@@ -1,12 +1,10 @@
 package com.example.aplicationtestinglayout
 
-import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aplicationtestinglayout.data.User
 
@@ -18,27 +16,31 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder> () {
     //var corDaView = arrayOf(R.drawable.recycle_task_color_yellow, R.drawable.recycle_task_collor_red, R.drawable.recycle_task_collor_red, R.drawable.recycle_task_color_green, R.drawable.recycle_task_color_yellow, R.drawable.recycle_task_collor_red, R.drawable.recycle_task_color_green, R.drawable.recycle_task_color_yellow, R.drawable.recycle_task_color_yellow, R.drawable.recycle_task_color_yellow,)
 
     inner class ViewHolder (itemView: View): RecyclerView.ViewHolder(itemView) {
-
+        /*
         var tituloTask: TextView
         var descricaoTask: TextView
         var data: TextView
-        var hora: TextView
+        //var hora: TextView
         var Itemtipo: ImageView
         var viewCor: ImageView
         var textId: TextView
 
+         */
+
         init {
 
-
+            /*
             //alterado pra testes
             tituloTask = itemView.findViewById(R.id.titulo)
             descricaoTask = itemView.findViewById(R.id.descri)
             data = itemView.findViewById(R.id.data)
-            hora = itemView.findViewById(R.id.hora)
+            //hora = itemView.findViewById(R.id.hora)
             Itemtipo = itemView.findViewById(R.id.TypeImage)
             viewCor = itemView.findViewById(R.id.ColorViewTasks)
-            textId = itemView.findViewById(R.id.textID)
+            textId = itemView.findViewById(R.id.StatusProv)
             //alterado pra testes
+
+             */
 
         }
 
@@ -56,7 +58,7 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder> () {
     override fun onBindViewHolder(holder: RecyclerAdapter.ViewHolder, position: Int) {
 
         val currentItem = userList[position]
-
+        /*
         holder.textId.text = currentItem.id.toString()
         holder.tituloTask.text = currentItem.tituloTarefa
         holder.descricaoTask.text = currentItem.descriTarefa
@@ -64,6 +66,8 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder> () {
         holder.hora.text = currentItem.horaTarefa
         holder.Itemtipo.setImageResource(R.drawable.recycle_task_color_yellow)
         holder.viewCor.setImageResource(R.drawable.recycle_task_color_yellow)
+
+         */
 
 
     }

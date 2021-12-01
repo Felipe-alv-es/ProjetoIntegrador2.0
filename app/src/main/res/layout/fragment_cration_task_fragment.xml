@@ -15,8 +15,10 @@
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/backtest2" />
 
     <View
@@ -318,5 +320,31 @@
         app:layout_constraintEnd_toEndOf="@+id/cont"
         app:layout_constraintTop_toBottomOf="@+id/form_box"
         app:layout_constraintVertical_bias="0.4" />
+
+    <EditText
+        android:id="@+id/provisoryName"
+        style="@style/TextInput"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/open_sans"
+        android:hint="Só de testes 1 "
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:textColor="#F4F4F4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/provisoryStatus"
+        style="@style/TextInput"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="240dp"
+        android:fontFamily="@font/open_sans"
+        android:hint="Só de testes 2"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:textColor="#F4F4F4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

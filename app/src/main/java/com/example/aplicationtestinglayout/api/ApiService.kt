@@ -1,15 +1,12 @@
-package com.example.aplicationtestinglayout.api
+package com.example.cardview.api
 
 import com.example.aplicationtestinglayout.model.Tarefas
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.PUT
+import retrofit2.http.*
 
 interface ApiService {
 
-    @GET("Tarefas")
+    @GET("api/todo")
     suspend fun listTasks(): Response<List<Tarefas>>
 
     @POST("api/todo")
@@ -20,6 +17,11 @@ interface ApiService {
     @PUT("api/todo")
     suspend fun updateTarefa(
         @Body tarefas: Tarefas
+    ): Response<Tarefas>
+
+    @DELETE("api/todo/{tarefa}")
+    suspend fun deleteTarefa(
+        @Path("tarefa") valor: Int
     ): Response<Tarefas>
 
 }

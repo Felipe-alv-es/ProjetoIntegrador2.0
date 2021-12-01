@@ -62,34 +62,38 @@ class CrationTask_fragment : Fragment(), TimePickerListener, AdapterView.OnItemS
     }
 
     private fun inputCheck(
-        titulo: String, desc: String,
-        data: String, hora: String
+        titulo: String, desc: String, dono: String,
+        data: String, status: String
     ): Boolean{
         return !(TextUtils.isEmpty(titulo) &&
                 TextUtils.isEmpty(desc) &&
+                TextUtils.isEmpty(dono) &&
                 TextUtils.isEmpty(data) &&
-                TextUtils.isEmpty(hora)
+                TextUtils.isEmpty(status)
                 )
     }
 
     fun inserirNoBanco(){
         val titulo = binding.taskTitleForm.text.toString()
         val desc = binding.descricaoTask.text.toString()
+        val dono = binding.provisoryName.text.toString()
         val data = binding.inputData.text.toString()
-        val hora = binding.inputHora.text.toString()
+        val status = binding.provisoryStatus.text.toString()
 
-        if(inputCheck(titulo, desc, data, hora)){
+        if(inputCheck(titulo, desc, dono, data, status)){
             _tarefaSelecionada = mainViewModel.tarefaSelecionada
             var atualizarCriar = ""
             if (_tarefaSelecionada != null) {
-                val tarefas = Tarefas(0, titulo, desc, mainViewModel.selectedDateLiveData.value!!
-
+                val tarefas = Tarefas(tarefaSelecionada.id, titulo, desc, data,
+                    mainViewModel.selectedDateLiveData.value!!,
+                    status
                 )
                 mainViewModel.updateTarefa(tarefas)
                 atualizarCriar = "Tarefa Atualizada!"
             }else{
-                val tarefas = Tarefas(0, titulo, desc, mainViewModel.selectedDateLiveData.value!!
-
+                val tarefas = Tarefas(0, titulo, desc, dono,
+                    mainViewModel.selectedDateLiveData.value!!,
+                    status
                 )
                 mainViewModel.addTarefa(tarefas)
                 atualizarCriar = "Tarefa Adicionada!"
@@ -111,14 +115,18 @@ class CrationTask_fragment : Fragment(), TimePickerListener, AdapterView.OnItemS
     fun carregarDados() {
         _tarefaSelecionada = mainViewModel.tarefaSelecionada
         if (_tarefaSelecionada != null) {
-            binding.taskTitleForm.setText(tarefaSelecionada.tituloTarefa)
-            binding.descricaoTask.setText(tarefaSelecionada.descriTarefa)
+            binding.taskTitleForm.setText(tarefaSelecionada.name)
+            binding.descricaoTask.setText(tarefaSelecionada.description)
+            binding.provisoryName.setText(tarefaSelecionada.assignetTo)
             binding.inputData.setText(tarefaSelecionada.dueDate)
+            binding.provisoryStatus.setText(tarefaSelecionada.status)
         } else {
             binding.taskTitleForm.text = null
             binding.descricaoTask.text = null
+            binding.provisoryName.text = null
             binding.inputData.text = null
-            binding.inputHora.text = null
+            binding.provisoryStatus.text = null
+
         }
     }
 

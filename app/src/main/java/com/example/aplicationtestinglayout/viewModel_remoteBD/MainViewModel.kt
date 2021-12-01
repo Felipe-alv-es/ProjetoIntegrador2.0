@@ -23,6 +23,9 @@ class MainViewModel @Inject constructor(
     private val _myResponse = MutableLiveData<Response<List<Tarefas>>>()
     val myResponse: LiveData<Response<List<Tarefas>>> = _myResponse
 
+    private val _myDeleteResponse = MutableLiveData<Response<Tarefas>>()
+    val myDeleteResponse: LiveData<Response<Tarefas>> = _myDeleteResponse
+
     val selectedDateLiveData: MutableLiveData<String> = MutableLiveData()
 
     var tarefaSelecionada: Tarefas? = null
@@ -53,6 +56,13 @@ class MainViewModel @Inject constructor(
     fun updateTarefa(tarefas: Tarefas){
         viewModelScope.launch {
             val response = repository.updateTarefa(tarefas)
+        }
+    }
+
+    fun deleteTarefa(valor: Int){
+        viewModelScope.launch {
+            val response = repository.deleteTarefa(valor)
+            _myDeleteResponse.value = response
         }
     }
 

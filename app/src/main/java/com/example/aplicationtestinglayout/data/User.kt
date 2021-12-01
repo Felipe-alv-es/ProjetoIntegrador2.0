@@ -11,10 +11,11 @@ class User (
 
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val tituloTarefa: String,
-    val descriTarefa: String,
-    val dataTarefa: String,
-    val horaTarefa: String,
+    var name: String,
+    var description: String,
+    var assignetTo: String,
+    var dueDate: String,
+    var status: String
 )
 
 
