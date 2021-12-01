@@ -10,17 +10,19 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aplicationtestinglayout.adapter.TarefaAdapter
 import com.example.aplicationtestinglayout.adapter.TaskItemClickListener
-import com.example.aplicationtestinglayout.data.UserViewModel
 import com.example.aplicationtestinglayout.databinding.FragmentTaskListFragmentBinding
 import com.example.aplicationtestinglayout.model.Tarefas
 import com.example.aplicationtestinglayout.viewModel_remoteBD.MainViewModel
 import com.example.cardview.repository.Repository
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import javax.sql.DataSource
 
 
@@ -46,12 +48,11 @@ class TaskList_fragment : Fragment(), TaskItemClickListener {
         binding.recyclerView.setHasFixedSize(true)
 
         mainViewModel.listTarefas()
-        mainViewModel.myResponse.observe(viewLifecycleOwner, {
-
-            response ->
-            response.body()?.let {adapter.setData(it)}
-
-        })
+        lifecycleScope.launch {
+            mainViewModel.myQueryResponse.collect {
+                response -> adapter.setData(response)
+            }
+        }
 
         return binding.root
     }

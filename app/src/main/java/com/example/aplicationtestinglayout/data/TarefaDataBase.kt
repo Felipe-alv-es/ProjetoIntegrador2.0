@@ -4,38 +4,36 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.aplicationtestinglayout.model.Tarefas
 
-@Database(entities = [User::class], version = 1, exportSchema = false)
-abstract class UserDataBase: RoomDatabase() {
+@Database(entities = [Tarefas::class], version = 1, exportSchema = false)
 
-    abstract fun userDao(): UserDao
+abstract class TarefaDataBase: RoomDatabase() {
+
+    abstract fun TarefaDao(): TarefaDao
 
     companion object{
 
         @Volatile
-        private var INSTANCE: UserDataBase? = null
 
-        fun getDatabase(context: Context): UserDataBase{
+        private var INSTANCE: TarefaDataBase? = null
 
+        fun getDataBase(context: Context): TarefaDataBase{
             val tempInstance = INSTANCE
-
             if (tempInstance != null){
                 return tempInstance
             }
             synchronized(this){
-
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    UserDataBase::class.java,
-                    "user_database"
-
+                    TarefaDataBase::class.java,
+                    "tarefas_database"
                 ).build()
 
                 INSTANCE = instance
                 return instance
 
             }
-
         }
 
     }

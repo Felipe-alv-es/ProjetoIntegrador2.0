@@ -9,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aplicationtestinglayout.R
-import com.example.aplicationtestinglayout.data.User
 import com.example.aplicationtestinglayout.model.Tarefas
 import com.example.aplicationtestinglayout.viewModel_remoteBD.MainViewModel
 
