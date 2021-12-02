@@ -34,7 +34,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.407" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/Pass2"
@@ -42,15 +42,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
-        android:hint="@string/senha"
+        android:hint="Confirme sua senha: "
         android:importantForAutofill="no"
         android:inputType="numberPassword"
         android:padding="20dp"
         android:textColorHint="#aeaeae"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Pass" />
 
@@ -60,7 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
         android:hint="@string/senha"
@@ -69,6 +70,7 @@
         android:padding="20dp"
         android:textColorHint="#aeaeae"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nomeCompleto" />
 
@@ -76,10 +78,29 @@
         android:id="@+id/userName"
         style="@style/inputTextLogin"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
-        android:hint="@string/nome_de_usu_rio"
+        android:hint="Nome de Usuário:"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:padding="20dp"
+        android:textColor="#000000"
+        android:textColorHint="#aeaeae"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userName2" />
+
+    <EditText
+        android:id="@+id/userName2"
+        style="@style/inputTextLogin"
+        android:layout_width="372dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:hint="Nome e Sobrenome:"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:padding="20dp"
@@ -94,15 +115,16 @@
         android:id="@+id/nomeCompleto"
         style="@style/inputTextLogin"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
-        android:hint="@string/senha"
+        android:hint="E-mail:"
         android:importantForAutofill="no"
         android:inputType="numberPassword"
         android:padding="20dp"
         android:textColorHint="#aeaeae"
         app:layout_constraintEnd_toEndOf="@+id/center_view"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userName" />
 
@@ -136,8 +158,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/CadButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox"
+        app:layout_constraintVertical_bias="1.0" />
 
     <CheckBox
         android:id="@+id/checkBox"
@@ -146,11 +170,12 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="30dp"
-        android:text="Declaro que Li e aceito os termos de politica e privacidade"
+        android:text="Declaro que li e aceito os termos de Política e Privacidade."
         android:textColor="#aeaeae"
         android:textColorHint="#aeaeae"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Pass2" />
 

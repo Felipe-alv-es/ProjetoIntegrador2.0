@@ -72,6 +72,10 @@ class TarefaAdapter(
             holder.ImageType.setImageResource(R.drawable.recycle_task_color_yellow)
             holder.typeImage.setImageResource(R.drawable.goal)
         }
+        else if (holder.textDono.text == "3"){
+            holder.ImageType.setImageResource(R.drawable.background3)
+            holder.typeImage.setImageResource(R.drawable.ic_special_task)
+        }
 
         holder.buttonDeletar.setOnClickListener {
             mainViewModel.deleteTarefa(tarefa)

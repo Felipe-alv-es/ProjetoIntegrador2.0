@@ -36,6 +36,8 @@ class MainViewModel @Inject constructor(
 
     var tarefaSelecionada: Tarefas? = null
 
+    var contador: Int = 0
+
     lateinit var myQueryResponse: Flow<List<Tarefas>>
 
     init {
@@ -60,8 +62,10 @@ class MainViewModel @Inject constructor(
                         val findTarefas = repository.queryById(tarefa.id)
                         if(findTarefas.first() != null){
                             repository.updateRoom(tarefa)
+                            Log.d("QualquerCoisa2", tarefa.toString())
                         }else{
                             repository.insertTarefas(tarefa)
+                            Log.d("QualquerCoisa", tarefa.toString())
                         }
                     }
                 }else{
@@ -81,7 +85,7 @@ class MainViewModel @Inject constructor(
             try {
                 val response = repository.addTarefa(tarefas)
                 if(response.isSuccessful){
-                    repository.insertTarefas(tarefas)
+                    repository.insertTarefas(response.body()!!)
                 }else{
                     repository.insertTarefas(tarefas)
                 }
