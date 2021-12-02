@@ -68,6 +68,8 @@ class CrationTask_fragment : Fragment(), TimePickerListener, AdapterView.OnItemS
             selecionaTask()
             inserirNoBanco()
             mainViewModel.contador++
+            mainViewModel.tarefaSelecionada = null
+
         }
 
         binding.BotaoCancelarTarefa.setOnClickListener{
@@ -197,7 +199,7 @@ class CrationTask_fragment : Fragment(), TimePickerListener, AdapterView.OnItemS
             _tarefaSelecionada = mainViewModel.tarefaSelecionada
             var atualizarCriar = ""
             if (_tarefaSelecionada != null) {
-                val tarefas = Tarefas(tarefaSelecionada.id, titulo, desc, data,
+                val tarefas = Tarefas(tarefaSelecionada.id, titulo, desc, dono,
                     mainViewModel.selectedDateLiveData.value!!,
                     status
                 )
