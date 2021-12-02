@@ -192,6 +192,7 @@
                         android:text="          Tarefas rápidas do seu                  dia a dia!"
                         android:textAlignment="center"
                         android:textColor="#6C6B6B"
+                        android:checked="true"
                         android:textSize="15dp" />
 
                     <RelativeLayout
@@ -306,5 +307,17 @@
         app:layout_constraintEnd_toEndOf="@+id/cont"
         app:layout_constraintTop_toBottomOf="@+id/form_box"
         app:layout_constraintVertical_bias="0.4" />
+
+    <TextView
+        android:id="@+id/SalvarValorNinguemTaMeVendo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="16dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/cont"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="#FFFFFF"
+        android:inputType="number"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

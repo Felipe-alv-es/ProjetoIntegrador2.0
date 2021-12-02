@@ -36,6 +36,8 @@ class MainViewModel @Inject constructor(
 
     var tarefaSelecionada: Tarefas? = null
 
+    var contador: Int = 0
+
     lateinit var myQueryResponse: Flow<List<Tarefas>>
 
     init {
