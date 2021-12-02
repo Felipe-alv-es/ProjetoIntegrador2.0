@@ -15,7 +15,11 @@
     <fragment
         android:id="@+id/taskList"
         android:name="com.example.aplicationtestinglayout.TaskList_fragment"
-        tools:layout="@layout/fragment_task_list_fragment" />
+        tools:layout="@layout/fragment_task_list_fragment" >
+        <action
+            android:id="@+id/ListToCreation"
+            app:destination="@id/creationTask" />
+    </fragment>
     <fragment
         android:id="@+id/lataLixo"
         android:name="com.example.aplicationtestinglayout.trashcan_fragment"

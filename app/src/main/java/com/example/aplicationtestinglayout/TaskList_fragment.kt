@@ -59,7 +59,7 @@ class TaskList_fragment : Fragment(), TaskItemClickListener {
 
     override fun onTaskClicked(tarefas: Tarefas) {
         mainViewModel.tarefaSelecionada = tarefas
-        findNavController().navigate(R.id.CreationTaskToList)
+        findNavController().navigate(R.id.ListToCreation)
     }
 
 }
