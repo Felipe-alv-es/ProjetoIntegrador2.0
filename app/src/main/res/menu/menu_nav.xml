@@ -15,8 +15,8 @@
 
 
     <item
-        android:title="excluirTarefas"
-        android:icon="@drawable/ic_lata_de_lixo"
+        android:title="Help"
+        android:icon="@drawable/ic_helpbutton"
         android:id="@+id/lataLixo"/>
 
 

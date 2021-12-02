@@ -188,11 +188,11 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/selectbuttons_bg_white_set"
+                        android:checked="true"
                         android:fontFamily="@font/open_sans"
                         android:text="          Tarefas rápidas do seu                  dia a dia!"
                         android:textAlignment="center"
                         android:textColor="#6C6B6B"
-                        android:checked="true"
                         android:textSize="15dp" />
 
                     <RelativeLayout

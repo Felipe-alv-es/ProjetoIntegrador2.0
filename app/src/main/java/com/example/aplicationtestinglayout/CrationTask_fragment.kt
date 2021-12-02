@@ -94,8 +94,8 @@ class CrationTask_fragment : Fragment(), TimePickerListener, AdapterView.OnItemS
         if (contadorSpecial == 10){
 
 
-            val titulo = "Task Especial au au au"
-            val desc = "Jogar a noite toda, que sono"
+            val titulo = "Beber Agua"
+            val desc = "Beber Agua é importante, Hidrate-se"
             val dono = "3"
             val status = "0"
 
@@ -107,8 +107,8 @@ class CrationTask_fragment : Fragment(), TimePickerListener, AdapterView.OnItemS
         }
         else if (contadorSpecial == 20){
 
-            val titulo = "Task Especial miau miau"
-            val desc = "Jogar a noite toda, que sono"
+            val titulo = "Que tal uma caminhada? "
+            val desc = "Ao caminhar você contribui para sua própria saúde"
             val dono = "3"
             val status = "0"
 
@@ -120,8 +120,22 @@ class CrationTask_fragment : Fragment(), TimePickerListener, AdapterView.OnItemS
         }
         else if (contadorSpecial == 30){
 
-            val titulo = "Task Especial cócócó"
-            val desc = "Jogar a noite toda, que sono"
+            val titulo = "Dormir cedo ajuda na sua saúde"
+            val desc = "Uma boa noite de sono melhora seu \n humor e qualidade de vida"
+            val dono = "3"
+            val status = "0"
+
+            val taskSpecial = Tarefas(0, titulo, desc, dono,
+                mainViewModel.selectedDateLiveData.value!!,
+                status)
+            mainViewModel.addTarefa(taskSpecial)
+
+        }
+
+        else if (contadorSpecial == 30){
+
+            val titulo = "Alogamentos ajudam!!"
+            val desc = "Alongamentos evitam lesões e problemas vasculares"
             val dono = "3"
             val status = "0"
 
