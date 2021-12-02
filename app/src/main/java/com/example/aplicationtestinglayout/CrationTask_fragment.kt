@@ -186,6 +186,7 @@ class CrationTask_fragment : Fragment(), TimePickerListener, AdapterView.OnItemS
     }
 
     fun inserirNoBanco(){
+
         val titulo = binding.taskTitleForm.text.toString()
         val desc = binding.descricaoTask.text.toString()
         val dono = escolha
