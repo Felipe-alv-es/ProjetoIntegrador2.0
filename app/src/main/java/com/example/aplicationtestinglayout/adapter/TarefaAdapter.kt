@@ -33,7 +33,7 @@ class TarefaAdapter(
         val textDono = view.findViewById<TextView>(R.id.DonoProv)
         // Definir o icone e cor da task
 
-        val textStatus = view.findViewById<TextView>(R.id.StatusProv)
+        val textStatus = view.findViewById<TextView>(R.id.HoraTarefa)
         val ImageType = view.findViewById<ImageView>(R.id.ColorViewTasks)
         val typeImage = view.findViewById<ImageView>(R.id.TypeImage)
     }

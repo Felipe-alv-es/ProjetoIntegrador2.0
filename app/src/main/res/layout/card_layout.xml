@@ -51,32 +51,43 @@
 
         <TextView
             android:id="@+id/descri"
-            android:layout_width="match_parent"
-            android:layout_height="27dp"
-            android:layout_marginStart="80dp"
+            android:layout_width="273dp"
+            android:layout_height="26dp"
             android:layout_marginEnd="16dp"
             android:fontFamily="@font/open_sans"
             android:text="Descrição da Tarefa"
+            android:textAlignment="center"
             android:textColor="#1C1C1C"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/TypeImage"
+            app:layout_constraintHorizontal_bias="0.651"
+            app:layout_constraintStart_toEndOf="@+id/ColorViewTasks"
             app:layout_constraintTop_toBottomOf="@+id/titulo" />
 
         <TextView
             android:id="@+id/data"
-            android:layout_width="match_parent"
-            android:layout_height="27dp"
-            android:layout_marginStart="80dp"
-            android:layout_marginEnd="16dp"
+            android:layout_width="133dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="@font/open_sans"
             android:text="Data da Tarefa"
             android:textColor="#1C1C1C"
             android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/ColorViewTasks"
+            app:layout_constraintTop_toBottomOf="@+id/descri" />
+
+        <TextView
+            android:id="@+id/HoraTarefa"
+            android:layout_width="133dp"
+            android:layout_height="26dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/open_sans"
+            android:text="Hora Tarefa"
+            android:textColor="#1C1C1C"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/TypeImage"
             app:layout_constraintTop_toBottomOf="@+id/descri" />
 
         <TextView

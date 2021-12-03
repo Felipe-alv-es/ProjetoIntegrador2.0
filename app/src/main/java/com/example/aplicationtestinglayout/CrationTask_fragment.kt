@@ -1,7 +1,9 @@
 package com.example.aplicationtestinglayout
 
+import android.app.TimePickerDialog
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.text.Editable
 import android.text.TextUtils
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,6 +11,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.EditText
+import android.widget.TimePicker
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -19,6 +23,7 @@ import com.example.cardview.fragment.DatePickerFragment
 import com.example.cardview.fragment.TimePickerListener
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.concurrent.timer
 
 
 class CrationTask_fragment : Fragment(), TimePickerListener, AdapterView.OnItemSelectedListener {
@@ -67,7 +72,7 @@ class CrationTask_fragment : Fragment(), TimePickerListener, AdapterView.OnItemS
 
         binding.BotaoSalvarTarefa.setOnClickListener{
 
-            validaForm(binding.taskTitleForm.text.toString(), binding.descricaoTask.text.toString(), binding.inputData.text.toString())
+            validaForm(binding.taskTitleForm.text.toString(), binding.descricaoTask.text.toString(), binding.inputData.text.toString(), binding.imputHora.text.toString())
 
             if (dadosValidados == true)
             {
@@ -92,12 +97,36 @@ class CrationTask_fragment : Fragment(), TimePickerListener, AdapterView.OnItemS
             mudaCorMeta()
         }
 
+        binding.imputHora.setOnClickListener{
+
+            fun String.toEditable(): Editable =  Editable.Factory.getInstance().newEditable(this)
+
+            val cal = Calendar.getInstance()
+            var hora: String
+            val timeSetListener = TimePickerDialog.OnTimeSetListener{timePicker: TimePicker?, hour: Int, minute: Int ->
+
+                cal.set(Calendar.HOUR_OF_DAY, hour)
+                cal.set(Calendar.MINUTE, minute)
+
+                hora = SimpleDateFormat ("HH:mm").format(cal.time)
+
+                binding.imputHora.text = hora.toEditable()
+            }
+            TimePickerDialog (context, timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
+        }
+
         return _binding?.root
     }
 
-    private fun validaForm(titulo: String, descricao: String, data: String) {
+    private fun validaForm(titulo: String, descricao: String, data: String, hora: String) {
 
-        if ((TextUtils.isEmpty(titulo) || TextUtils.isEmpty(descricao) || TextUtils.isEmpty(data))){
+        val formatter = SimpleDateFormat("yyyy-MM-dd")
+        val date = formatter.format(Date())
+        val inputData = binding.inputData.text.toString()
+        Log.d("Data", date.toString())
+        Log.d("Data", inputData.toString())
+
+        if ((TextUtils.isEmpty(titulo) || TextUtils.isEmpty(descricao) || TextUtils.isEmpty(data) || TextUtils.isEmpty(hora))){
 
             return Toast.makeText(context, "Algum campo solicitado está em branco!", Toast.LENGTH_SHORT).show()
 
@@ -105,16 +134,13 @@ class CrationTask_fragment : Fragment(), TimePickerListener, AdapterView.OnItemS
         else if (titulo.length > 50 || descricao.length > 150){
 
             return Toast.makeText(context, "Foram excedidas as quantidas maximas de caracteres", Toast.LENGTH_SHORT).show()
-
         }
-
+        else if (inputData < date){
+            return Toast.makeText(context, "Data Inválida", Toast.LENGTH_SHORT).show()
+        }
         else{
-
             dadosValidados = true
-            return
-
         }
-
     }
 
 
@@ -222,7 +248,7 @@ class CrationTask_fragment : Fragment(), TimePickerListener, AdapterView.OnItemS
         val desc = binding.descricaoTask.text.toString()
         val dono = escolha
         val data = binding.inputData.text.toString()
-        val status = "0"
+        val status = binding.imputHora.text.toString()
 
         if(inputCheck(titulo, desc, dono, data, status)){
             _tarefaSelecionada = mainViewModel.tarefaSelecionada
