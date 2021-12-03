@@ -41,7 +41,7 @@ class MainViewModel @Inject constructor(
     lateinit var myQueryResponse: Flow<List<Tarefas>>
 
     init {
-        val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+        val formatter = SimpleDateFormat("yyyy-MM-dd")
         val date = formatter.format(Date())
         selectedDateLiveData.postValue(date.toString())
 
