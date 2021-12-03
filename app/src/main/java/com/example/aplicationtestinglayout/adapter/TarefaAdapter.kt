@@ -61,16 +61,16 @@ class TarefaAdapter(
 
         if (holder.textDono.text == "0") {
             holder.ImageType.setImageResource(R.drawable.recycle_task_color_green)
-            holder.typeImage.setImageResource(R.drawable.habito)
+            holder.typeImage.setImageResource(R.drawable.habitow)
 
         }
         else if(holder.textDono.text == "1"){
             holder.ImageType.setImageResource(R.drawable.recycle_task_collor_red)
-            holder.typeImage.setImageResource(R.drawable.clipboards)
+            holder.typeImage.setImageResource(R.drawable.clipboardsw)
         }
         else if (holder.textDono.text == "2"){
             holder.ImageType.setImageResource(R.drawable.recycle_task_color_yellow)
-            holder.typeImage.setImageResource(R.drawable.goal)
+            holder.typeImage.setImageResource(R.drawable.goalw)
         }
         else if (holder.textDono.text == "3"){
             holder.ImageType.setImageResource(R.drawable.background3)

@@ -32,6 +32,7 @@ class CrationTask_fragment : Fragment(), TimePickerListener, AdapterView.OnItemS
     private val binding get() = _binding!!
 
     var escolha = ""
+    var dadosValidados: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -65,9 +66,16 @@ class CrationTask_fragment : Fragment(), TimePickerListener, AdapterView.OnItemS
         }
 
         binding.BotaoSalvarTarefa.setOnClickListener{
-            selecionaTask()
-            inserirNoBanco()
-            mainViewModel.contador++
+
+            validaForm(binding.taskTitleForm.text.toString(), binding.descricaoTask.text.toString(), binding.inputData.text.toString())
+
+            if (dadosValidados == true)
+            {
+                selecionaTask()
+                inserirNoBanco()
+                mainViewModel.contador++
+                mainViewModel.tarefaSelecionada = null
+            }
         }
 
         binding.BotaoCancelarTarefa.setOnClickListener{
@@ -86,6 +94,29 @@ class CrationTask_fragment : Fragment(), TimePickerListener, AdapterView.OnItemS
 
         return _binding?.root
     }
+
+    private fun validaForm(titulo: String, descricao: String, data: String) {
+
+        if ((TextUtils.isEmpty(titulo) || TextUtils.isEmpty(descricao) || TextUtils.isEmpty(data))){
+
+            return Toast.makeText(context, "Algum campo solicitado está em branco!", Toast.LENGTH_SHORT).show()
+
+        }
+        else if (titulo.length > 50 || descricao.length > 150){
+
+            return Toast.makeText(context, "Foram excedidas as quantidas maximas de caracteres", Toast.LENGTH_SHORT).show()
+
+        }
+
+        else{
+
+            dadosValidados = true
+            return
+
+        }
+
+    }
+
 
     private fun specialTasks() {
 
@@ -197,7 +228,7 @@ class CrationTask_fragment : Fragment(), TimePickerListener, AdapterView.OnItemS
             _tarefaSelecionada = mainViewModel.tarefaSelecionada
             var atualizarCriar = ""
             if (_tarefaSelecionada != null) {
-                val tarefas = Tarefas(tarefaSelecionada.id, titulo, desc, data,
+                val tarefas = Tarefas(tarefaSelecionada.id, titulo, desc, dono,
                     mainViewModel.selectedDateLiveData.value!!,
                     status
                 )
