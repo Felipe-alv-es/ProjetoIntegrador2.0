@@ -5,6 +5,20 @@
   <h4 align="center"> 
 	TakeNotes, cuidando de suas tarefas e de sua saúde
 </h4>
+	
+	
+ <p align="center">
+ <a href="#-sobre-o-projeto">Sobre</a> •
+ <a href="#-funcionalidades">Funcionalidades</a> •
+ <a href="#-layout">Layout</a> • 
+ <a href="#-como-executar-o-projeto">Como executar</a> • 
+ <a href="#-tecnologias">Tecnologias</a> • 
+ <a href="#-autores">Autora</a> • 
+ <a href="#-orientadores">Orientadores</a> 
+</p>
+	
+	
+</h4>
 
 ## Sobre o Projeto
 <p align="center"> 
