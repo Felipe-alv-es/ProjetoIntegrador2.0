@@ -17,7 +17,7 @@
  <a href="#-orientadores">Orientadores</a> 
 </p>
 
-## Sobre o Projeto
+## 📄 Sobre o Projeto 🐝
 <p align="center"> 
 	Hoje em dia há muita despreocupação com a saúde, falta de atividades físicas,  falta de cuidado psicológico, que podem gerar diversos problemas mais graves para as pessoas. 
 	</p>
