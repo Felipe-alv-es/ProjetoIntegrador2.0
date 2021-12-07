@@ -39,7 +39,7 @@
 
 - [x] Criação, edição e exclusão de tarefas conforme as três opções disponibilizadas
 - [x] Tarefas relacionadas a saúde geradas automaticamente conforme o uso do aplicativo.
-- [x] Sessão de ajuda, com duvidas sobre o aplicativo e sugestões relacionadas a saúde para os usuários. 
+- [x] Sessão de ajuda, com dúvidas sobre o aplicativo e sugestões relacionadas a saúde para os usuários. 
 
 
 <a id="-layout"></a>
