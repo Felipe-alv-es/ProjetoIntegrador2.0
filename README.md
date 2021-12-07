@@ -56,7 +56,7 @@ O layout da aplicação inicial disponível no Marvel:
 
 O projeto foi desenvolvido na plataforma "Android Studio" 
 
-Dessa forma, é necessário importa-lo para o Android Studio para funcionar
+Dessa forma, é necessário importá-lo para o Android Studio para funcionar
 
 <a id="-tecnologias"></a>
 
