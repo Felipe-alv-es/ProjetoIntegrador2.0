@@ -14,11 +14,12 @@
  <a href="#-como-executar-o-projeto">Como executar</a> • 
  <a href="#-tecnologias">Tecnologias</a> • 
  <a href="#-autores">Autora</a> • 
- <a href="#-orientadores">Orientadores</a> 
 </p>
 	
 	
 </h4>
+
+<a id="-sobre-o-projeto"></a>
 
 ## Sobre o Projeto
 <p align="center"> 
@@ -32,6 +33,8 @@
 	</h2>
 
 
+<a id="-funcionalidades"></a>
+
 ## Funcionalidades
 
 - [x] Criação, edição e exclusão de tarefas conforme as três opções disponibilizadas
@@ -39,13 +42,15 @@
 - [x] Sessão de ajuda, com duvidas sobre o aplicativo e sugestões relacionadas a saúde para os usuários. 
 
 
+<a id="-layout"></a>
+
 ## Layout
 
 O layout da aplicação inicial disponível no Marvel:
 [Propótipo Navegável](https://marvelapp.com/prototype/8ebagja/screen/83585384)
 
 
-
+<a id="-como-executar-o-projeto"></a>
 
 ## Como executar o projeto
 
@@ -53,7 +58,7 @@ O projeto foi desenvolvido na plataforma "Android Studio"
 
 Dessa forma, é necessário importa-lo para o Android Studio para funcionar
 
-
+<a id="-tecnologias"></a>
 
 ## Tecnologias
 
@@ -64,6 +69,8 @@ Dessa forma, é necessário importa-lo para o Android Studio para funcionar
 
 
 -- BSM: Orientação ao futuro, Orientação ao detalhe, responsabilidade pessoal, mentalidade de crescimento, persistência, trabalho em equipe, atenção ao detalhe, proatividade e comunicação.
+
+<a id="-autores"></a>
 
 ## Autores
 
