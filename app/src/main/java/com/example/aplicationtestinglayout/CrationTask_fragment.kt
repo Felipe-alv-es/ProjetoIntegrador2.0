@@ -85,6 +85,11 @@ class CrationTask_fragment : Fragment(), TimePickerListener, AdapterView.OnItemS
 
         binding.BotaoCancelarTarefa.setOnClickListener{
 
+            binding.taskTitleForm.text = null
+            binding.descricaoTask.text = null
+            binding.inputData.text = null
+            binding.imputHora.text = null
+
         }
 
         binding.buttonHabito.setOnClickListener{

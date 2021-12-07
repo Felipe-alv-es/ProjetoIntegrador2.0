@@ -46,7 +46,7 @@
         android:inputType="textPersonName"
         android:textColorHint="#aeaeae"
         android:padding="20dp"
-        android:textColor="#FDFAFA"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,6 +64,7 @@
         android:inputType="numberPassword"
         android:textColorHint="#aeaeae"
         android:padding="20dp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/center_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userName" />
