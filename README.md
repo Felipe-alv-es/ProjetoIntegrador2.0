@@ -26,7 +26,7 @@
 	Hoje em dia há muita despreocupação com a saúde, falta de atividades físicas,  falta de cuidado psicológico, que podem gerar diversos problemas mais graves para as pessoas. 
 	</p>
 <p align="center"> 
-	Dessa forma, pensando nesse problema recorrente, desenvolvemos um aplicativo focado no Gerenciamento de tarefas, porem pensando também no bem estar e saúde dos usuários. 
+	Dessa forma, pensando nesse problema recorrente, desenvolvemos um aplicativo focado no Gerenciamento de tarefas, porém pensando também no bem estar e saúde dos usuários. 
 	</p>
 <h2 align="center"> 
                 Cuide de sua saúde, e de seu futuro! 
