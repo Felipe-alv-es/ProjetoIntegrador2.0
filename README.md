@@ -47,7 +47,7 @@
 ## Layout
 
 O layout da aplicação inicial disponível no Marvel:
-[Propótipo Navegável](https://marvelapp.com/prototype/8ebagja/screen/83585384)
+[Protótipo Navegável](https://marvelapp.com/prototype/8ebagja/screen/83585384)
 
 
 <a id="-como-executar-o-projeto"></a>
